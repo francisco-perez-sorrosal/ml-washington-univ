@@ -1,0 +1,67 @@
+1) (True/False) Stochastic gradient ascent often requires fewer passes over the dataset than batch gradient ascent to achieve a similar log likelihood.
+
+True
+
+2) (True/False) Choosing a large batch size results in less noisy gradients
+
+True
+
+3) (True/False) The set of coefficients obtained at the last iteration represents the best coefficients found so far.
+
+
+False
+
+4) Suppose you obtained the plot of log likelihood below after running stochastic gradient ascent.
+
+https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/VyRs8uBtEeWBDQ73-3lhaw_70d1c456f3deba4ffa876e53e041cf7a_Capture.PNG?expiry=1563235200000&hmac=iNT6BEpwE6V3pe41TmJwn5-wts7eT4IkEcRLq_PwfWI
+
+Which of the following actions would help the most to improve the rate of convergence?
+
+
+Increase step size
+Decrease step size V
+Decrease batch size
+
+5) Suppose you obtained the plot of log likelihood below after running stochastic gradient ascent.
+
+https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/Ym5JpOBtEeWBDQ73-3lhaw_8f2bb6e530dc2b481646181bf6e72a80_Capture2.PNG?expiry=1563235200000&hmac=uwyyBw---QR1D6Om8-v9_SBtHJuiRtJ8EPu1YucokK4
+
+Which of the following actions would help to improve the rate of convergence?
+
+
+Increase batch size
+Increase step size V
+Decrease step size
+
+6) Suppose it takes about 1 milliseconds to compute a gradient for a single example. You run an online advertising company and would like to do online learning via mini-batch stochastic gradient ascent. If you aim to update the coefficients once every 5 minutes, how many examples can you cover in each update? Overhead and other operations take up 2 minutes, so you only have 3 minutes for the coefficient update.
+
+5mins - 2 mins = 3 mins = 180 secs for coef update = 180000 ms or 180000 examples
+
+7) In search for an optimal step size, you experiment with multiple step sizes and obtain the following convergence plot.
+
+https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/bS2ZaOBtEeWufRJaRfO1AQ_8d67c76c9a6715f27ebc78fb8df13c0a_Capture3.PNG?expiry=1563235200000&hmac=cNv8F9aZhxWDNtWxvJBvas3GWvDi3iO4fnukHGyUCdo
+
+Which line corresponds to step sizes that are larger than the best? Select all that apply.
+
+(1)
+(2)
+(3) V
+(4)
+(5) V
+
+8) Suppose you run stochastic gradient ascent with two different batch sizes. Which of the two lines below corresponds to the smaller batch size (assuming both use the same step size)?
+
+(1) V
+(2)
+
+9) Which of the following is NOT a benefit of stochastic gradient ascent over batch gradient ascent? Choose all that apply.
+
+Each coefficient step is very fast.
+Log likelihood of data improves monotonically. V
+Stochastic gradient ascent can be used for online learning.
+Stochastic gradient ascent can achieve higher likelihood than batch gradient ascent for the same amount of running time.
+Stochastic gradient ascent is highly robust with respect to parameter choices. V
+
+10) Suppose we run the stochastic gradient ascent algorithm described in the lecture with batch size of 100. To make 10 passes over a dataset consisting of 15400 examples, how many iterations does it need to run?
+
+15400/100 = 154 iterations to cover the whole dataset, so to make 10 passes, 154 * 10 = 1540 iterations
