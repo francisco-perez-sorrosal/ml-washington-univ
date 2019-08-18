@@ -1,0 +1,69 @@
+#Quiz
+
+1) Consider three data points with two features as follows:
+Among the three points, which two are closest to each other in terms of having the ​smallest Euclidean distance?
+
+B and C
+
+2) Consider three data points with two features as follows:
+
+Among the three points, which two are closest to each other in terms of having the ​largest cosine similarity (or equivalently, ​smallest cosine distance)?
+
+A and B
+
+3) Consider the following two sentences.
+
+Sentence 1: The quick brown fox jumps over the lazy dog.
+Sentence 2: A quick brown dog outpaces a quick fox.
+Compute the Euclidean distance using word counts. To compute word counts, turn all words into lower case and strip all punctuation, so that "The" and "the" are counted as the same token. That is, document 1 would be represented as
+
+x=[# the,# a,# quick,# brown,# fox,# jumps,# over,# lazy,# dog,# outpaces]
+where # word is the count of that word in the document.
+
+Round your answer to 3 decimal places.
+
+s1 = [2, 0, 1, 1, 1, 1, 1, 1, 1, 0]
+s2 = [0, 2, 2, 1, 1, 0, 0, 0, 1, 1]
+
+diff^2 = [4, 4, 1, 0, 0, 1, 1, 1, 0, 1]
+sum(diff^2) = 13
+euclid_dist = sqrt(sum(diff^2)) = sqrt(13) = 3.605
+
+4) Consider the following two sentences.
+
+Sentence 1: The quick brown fox jumps over the lazy dog.
+Sentence 2: A quick brown dog outpaces a quick fox.
+Recall that
+
+cosine distance = 1 - cosine similarity = 1 - (x^T*y)/(||x||*||y||)
+
+Compute the cosine distance between sentence 1 and sentence 2 using word counts. To compute word counts, turn all words into lower case and strip all punctuation, so that "The" and "the" are counted as the same token. That is, document 1 would be represented as
+
+x=[# the,# a,# quick,# brown,# fox,# jumps,# over,# lazy,# dog,# outpaces]
+where # word is the count of that word in the document.
+
+Round your answer to 3 decimal places.
+
+s1 = [2, 0, 1, 1, 1, 1, 1, 1, 1, 0]
+s2 = [0, 2, 2, 1, 1, 0, 0, 0, 1, 1]
+
+s1^2 = [4, 0, 1, 1, 1, 1, 1, 1, 1, 0]
+sum(s1^2) = 11
+s2^2 = [0, 4, 4, 1, 1, 0, 0, 0, 1, 1]
+sum(s2^2) = 12
+||s1|| = sqrt(sum(s1^2) = sqrt(11) = 3.316
+||s2|| = sqrt(sum(s2^2) = sqrt(12) = 3.464
+
+dot(s1^T, s2) = [0, 0, 2, 1, 1, 0, 0, 0, 1, 0] = 5
+
+coisne distance = 1 - [5/(3.316*3.464)] = 0.564
+
+5) (True/False) For positive features, cosine similarity is always between 0 and 1.
+True V
+False
+
+6) Which of the following does not describe the word count document representation? (Note: this is different from TF-IDF document representation.)
+
+Ignores the order of the words
+Assigns a high score to a frequently occurring word
+Penalizes words that appear in every document V
