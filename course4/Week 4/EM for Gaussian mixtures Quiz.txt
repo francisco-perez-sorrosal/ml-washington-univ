@@ -1,0 +1,92 @@
+1) (True/False) While the EM algorithm maintains uncertainty about the cluster assignment for each observation via soft assignments, the model assumes that every observation comes from only one cluster.
+
+True V
+False
+
+2) (True/False) In high dimensions, the EM algorithm runs the risk of setting cluster variances to zero.
+
+True V
+False
+
+3) In the EM algorithm, what do the E step and M step represent, respectively?
+
+Estimate cluster responsibilities, Maximize likelihood over parameters V
+Estimate likelihood over parameters, Maximize cluster responsibilities
+Estimate number of parameters, Maximize likelihood over parameters
+Estimate likelihood over parameters, Maximize number of parameters
+
+4) Suppose we have data that come from a mixture of 6 Gaussians (i.e., that is the true data structure). Which model would we expect to have the highest log-likelihood after fitting via the EM algorithm?
+
+A mixture of Gaussians with 2 component clusters
+A mixture of Gaussians with 4 component clusters
+A mixture of Gaussians with 6 component clusters V
+A mixture of Gaussians with 7 component clusters
+A mixture of Gaussians with 10 component clusters
+
+5) Which of the following correctly describes the differences between EM for mixtures of Gaussians and k-means? Choose all that apply.
+
+k-means often gets stuck in a local minimum, while EM tends not to
+EM is better at capturing clusters of different sizes and orientations V
+EM is better at capturing clusters with overlaps V
+EM is less prone to overfitting than k-means
+k-means is equivalent to running EM with infinitesimally small diagonal covariances. V
+
+6) Suppose we are running the EM algorithm. After an E-step, we obtain the following responsibility matrix:
+
+Cluster responsibilities	Cluster A	Cluster B	Cluster C
+Data point 1	0.20	0.40	0.40
+Data point 2	0.50	0.10	0.40
+Data point 3	0.70	0.20	0.10
+
+Which is the least probable cluster for data point 1?
+
+Cluster A V
+Cluster B
+Cluster C
+
+7) Suppose we are running the EM algorithm. After an E-step, we obtain the following responsibility matrix:
+
+Cluster responsibilities	Cluster A	Cluster B	Cluster C
+Data point 1	0.20	0.40	0.40
+Data point 2	0.50	0.10	0.40
+Data point 3	0.70	0.20	0.10
+
+Suppose also that the data points are as follows:
+
+Dataset	X	Y	Z
+Data point 1	3	1	2
+Data point 2	0	0	3
+Data point 3	1	3	7
+
+Let us compute the new mean for Cluster A. What is the Z coordinate of the new mean? Round your answer to 3 decimal places.
+
+
+Soft Count Cluster A = 0.2+0.5+0.7 = 1.4
+Soft Count Cluster B = 0.4+0.1+0.2 = 0.7
+Soft Count Cluster C = 0.4+0.4+0.1 = 0.9
+----------------------------------------
+                               sum = 3.0
+
+Soft counts A, divided by the sum = 1.4/3.0 = 0.46 (Not needed)
+
+[Weighted sum of data points for cluster A]
+= [Fraction of data point 0 represented in cluster A] * [data point 0]
+  + [Fraction of data point 1 represented in cluster A] * [data point 1]
+  + [Fraction of data point 2 represented in cluster A] * [data point 2]
+= 0.2*[data point 0] + 0.5*[data point 1] + 0.7*[data point 2]
+= 0.2 * (3,1,2) + 0.5 * (0,0,3)  + 0.7 * (1,3,7)
+= (0.6,0.2,0.4) + (0,0,1.5) + (0.7, 2.1, 4.9)
+= (1.3,2.3,6.8)
+
+Mean of cluster A:
+= (1.3,2.3,6.8)/1.4
+= (x,y,4.857)
+
+8) Which of the following contour plots describes a Gaussian distribution with diagonal covariance? Choose all that apply.
+
+3,4
+
+9) Suppose we initialize EM for mixtures of Gaussians (using full covariance matrices) with the following clusters:
+
+Which of the following best describes the updated clusters after the first iteration of EM?
+
