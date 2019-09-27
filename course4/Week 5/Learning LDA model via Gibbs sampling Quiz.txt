@@ -1,0 +1,100 @@
+1) (True/False) Each iteration of Gibbs sampling for Bayesian inference in topic models is guaranteed to yield a higher joint model probability than the previous sample.
+
+True
+False V
+
+2) (Check all that are true) Bayesian methods such as Gibbs sampling can be advantageous because they
+
+Account for uncertainty over parameters when making predictions V
+Are faster than methods such as EM
+Maximize the log probability of the data under the model
+Regularize parameter estimates to avoid extreme values V
+
+3) For the standard LDA model discussed in the lectures, how many parameters are required to represent the distributions defining the topics?
+
+[# unique words]
+[# unique words] * [# topics] V
+[# documents] * [# unique words]
+[# documents] * [# topics]
+
+4) Suppose we have a collection of documents, and we are focusing our analysis to the use of the following 10 words. We ran several iterations of collapsed Gibbs sampling for an LDA model with K=2 topics and alpha=10.0 and gamma=0.1 (with notation as in the collapsed Gibbs sampling lecture). The corpus-wide assignments at our most recent collapsed Gibbs iteration are summarized in the following table of counts:
+
+Word	Count in topic 1	Count in topic 2
+baseball	52	0
+homerun	15	0
+ticket	9	2
+price	9	25
+manager	20	37
+owner	17	32
+company	1	23
+stock	0	75
+bankrupt	0	19
+taxes	0	29
+
+We also have a single document i with the following topic assignments for each word:
+
+topic    1           2        1        2       1
+word	baseball	manager	ticket	price	owner
+
+Suppose we want to re-compute the topic assignment for the word “manager”. To sample a new topic, we need to compute several terms to determine how much the document likes each topic, and how much each topic likes the word “manager”. The following questions will all relate to this situation.
+
+First, using the notation in the slides, what is the value of m_{manager,1} (i.e., the number of times the word "manager" has been assigned to topic 1)?
+
+20
+
+5) Consider the situation described in Question 4.
+
+What is the value of ∑_w m_{w,1} where the sum is taken over all words in the vocabulary?
+
+52+15+9+9+20+17+1+0+0+0 = 123
+
+6) Consider the situation described in Question 4.
+
+Following the notation in the slides, what is the value of n_{i, 1} for this document i (i.e., the number of words in document i assigned to topic 1)?
+
+# of current assignments to topic 1 = 3 (baseball, ticket, owner)
+
+7) In the situation described in Question 4, “manager” was assigned to topic 2. When we remove that assignment prior to sampling, we need to decrement the associated counts.
+
+After decrementing, what is the value of n_{i, 2}?
+
+2 (# of current assignments to topic 2) - 1 = 1
+
+8) In the situation described in Question 4, “manager” was assigned to topic 2. When we remove that assignment prior to sampling, we need to decrement the associated counts.
+
+After decrementing, what is the value of m_{manager, 2}?
+
+36
+
+9) In the situation described in Question 4, “manager” was assigned to topic 2. When we remove that assignment prior to sampling, we need to decrement the associated counts.
+
+After decrementing, what is the value of ∑_w m_{w,2}?
+
+0+0+2+25+36+32+23+75+19+29=241
+
+10) Consider the situation described in Question 4.
+
+As discussed in the slides, the unnormalized probability of assigning to topic 1 is
+
+p_1 = (n_{i,1}+α)/(N_i−1+Kα) * m_{manager,1}+γ/∑_w m_{w,1}+Vγ
+
+where V is the total size of the vocabulary.
+
+Similarly the unnormalized probability of assigning to topic 2 is
+
+p_2 = (n_{i,2}+α)/(N_i−1+Kα) * m_{manager,2}+γ/∑_w m_{w,2}+Vγ
+
+Using the above equations and the results computed in previous questions, compute the probability of assigning the word “manager” to topic 1.
+
+(Reminder: Normalize across the two topic options so that the probabilities of all possible assignments---topic 1 and topic 2---sum to 1.)
+
+Round your answer to 3 decimal places.
+
+alpha=10
+gamma=0.1
+
+p_1 = ((3+10)/(5-1+(2*10))) * ((20+0.1)/(123+(10*0.1))) = 0.088
+
+p_2 = ((1+10)/(5−1+(2*10))) * ((36+0.1)/(241+(10*0.1))) = 0.068
+
+p_1 norm = 0.088/(0.088+0.068)=0.564
